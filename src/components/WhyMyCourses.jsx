@@ -8,7 +8,7 @@ function WhyMyCourses() {
             <div className="grid">
                 {motivations.map(
                     motivation => (
-                        <div key='motivation.id' className="card">
+                        <div key={motivation.id} className="card">
                             <span className={motivation.icon}></span>
                             <div className="card__body">
                                 

@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import dataReviews from "../dataReviews"
+import Slide from "./Slide";
 
 
 dataReviews
@@ -28,6 +29,21 @@ function Reviews() {
     const isActive = (index) => {
         return setActive(index);
     };
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+          setActive((prevValue) => {
+            if (prevValue + 1 === dataReviews.length) {
+              return 0;
+            } else {
+              return prevValue + 1;
+            }
+          });
+        }, 4000);
+        //Elimina timout prima prima di attivare il prossimo
+        return () => clearTimeout(timer);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+      }, [active]);
   return (
     <section className="reviews">
         <div className="container-small">
@@ -43,6 +59,25 @@ function Reviews() {
                 </div>
                 <button className="next-button" onClick={nextRewiew}><span className="lnr lnr-arrow-right"></span></button>
 
+            </div>
+            <div className="review__slider">
+                {dataReviews.map((review, index ) => {
+                
+                    let positionClass = "";
+                    if (index === active) {
+                    positionClass = "active";
+                    } else if (
+                    active === index + 1 ||
+                    (active === 0 && index === dataReviews.length - 1)
+                    ) {
+                    positionClass = "prev";
+                    } else {
+                    positionClass = "next";
+                    }
+                    return (
+                    <Slide key={review.id} {...review} classes={positionClass} />
+                    );
+                })}
             </div>
         </div>
 
