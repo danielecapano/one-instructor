@@ -262,7 +262,7 @@ nav {
 /* HERO */
 
 .hero {
-  background-image: url(./assets/hero.jpg);
+  background-image: url(/assets/hero.jpg);
   background-size: 1920px auto;
   background-repeat: no-repeat;
   background-position: top center;
@@ -792,7 +792,7 @@ section.numbers {
   display: grid;
   place-items: center;
   height: 600px;
-  background-image: url(./assets/bg-counter.jpg);
+  background-image: url(/assets/bg-counter.jpg);
   background-size: cover;
 
   .numbers__wrapper {
