@@ -369,6 +369,7 @@ nav {
     gap: 40px;
 
     .set-date {
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -376,11 +377,19 @@ nav {
       gap: 5px;
 
       .count {
+        width: 84px;
+        height: 106px;
+        font-variant-numeric: tabular-nums;
         font-size: 70px;
         line-height: 106px;
         letter-spacing: 3px;
         color: var(--white);
         font-weight: 700;
+
+        .digit {
+          display: inline-block;
+          position: relative;
+        }
       }
 
       .description {
@@ -574,6 +583,7 @@ nav {
         line-height: 26px;
         color: var(--gray);
         display: -webkit-box;
+        line-clamp: 4;
         -webkit-line-clamp: 4;
         -webkit-box-orient: vertical;
         overflow: hidden;
